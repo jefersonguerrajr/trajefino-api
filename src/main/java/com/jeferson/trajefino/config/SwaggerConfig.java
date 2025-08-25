@@ -7,12 +7,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @OpenAPIDefinition(
         info = @Info(
-                title = "Demo API",
+                title = "Trajefino API",
                 version = "v1",
                 description = "Documentação da API Trajefino",
                 termsOfService = "https://example.com/terms",
                 contact = @io.swagger.v3.oas.annotations.info.Contact(
-                        name = "Jeferson",
+                        name = "Jeferson Junior",
                         email = "jefersonguerrajr@live.com"
                 ),
                 license = @io.swagger.v3.oas.annotations.info.License(

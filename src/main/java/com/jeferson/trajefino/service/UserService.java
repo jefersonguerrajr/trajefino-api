@@ -11,7 +11,11 @@ import java.util.List;
 public class UserService {
 
     public ResponseEntity<List<User>> findAllUsers(){
-        return ResponseEntity.ok(new ArrayList<>() {{
+        return ResponseEntity.ok(new ArrayList<>() {
+        	
+		private static final long serialVersionUID = 1L;
+
+		{
             add(new User("Jeferson", "jefersonguerrajr", "1990-01-01"));
             add(new User("Maria", "maria123", "1995-05-15"));
             add(new User("João", "joaozinho", "1988-12-20"));
