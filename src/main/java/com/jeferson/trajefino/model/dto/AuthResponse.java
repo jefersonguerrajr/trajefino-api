@@ -1,4 +1,4 @@
-package com.jeferson.trajefino.model;
+package com.jeferson.trajefino.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

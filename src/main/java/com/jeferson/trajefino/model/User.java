@@ -1,5 +1,7 @@
 package com.jeferson.trajefino.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.jeferson.trajefino.model.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -42,8 +45,9 @@ public class User implements UserDetails {
     @Column(name = "birth_date")
     private String birthDate;
 
-    @Column(name = "role")
-    private String role; // Ex: "ROLE_USER", "ROLE_ADMIN"
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private UserRole role;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -51,9 +55,13 @@ public class User implements UserDetails {
     @Column(name = "enabled")
     private boolean enabled;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private final List<Address> addresses = new ArrayList<>();
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role != null ? role : "ROLE_USER"));
+        return List.of(new SimpleGrantedAuthority(role != null ? role.getRole() : UserRole.ROLE_CUSTOMER.getRole()));
     }
 
     @Override

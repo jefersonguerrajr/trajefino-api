@@ -1,6 +1,6 @@
 package com.jeferson.trajefino.exception;
 
-import com.jeferson.trajefino.model.Message;
+import com.jeferson.trajefino.model.dto.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

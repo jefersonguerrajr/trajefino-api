@@ -1,4 +1,4 @@
-package com.jeferson.trajefino.model;
+package com.jeferson.trajefino.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

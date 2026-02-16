@@ -1,6 +1,7 @@
-package com.jeferson.trajefino.model;
+package com.jeferson.trajefino.model.dto;
 
-import jakarta.validation.constraints.NotBlank;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.jeferson.trajefino.model.enums.UserRole;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,20 +14,20 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UserDTO {
 
-    @NotBlank(message = "Username é obrigatório")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private Long id;
+
     @Size(min = 3, max = 50, message = "Username deve ter entre 3 e 50 caracteres")
     private String userName;
 
     private String name;
 
-    @NotBlank(message = "Nome completo é obrigatório")
     private String fullName;
 
-    @NotBlank(message = "Senha é obrigatória")
     @Size(min = 6, message = "Senha deve ter no mínimo 6 caracteres")
     private String password;
 
     private String birthDate;
 
-    private String role; // Opcional, padrão será ROLE_USER
+    private UserRole role; // Opcional, padrão será ROLE_CUSTOMER
 }
