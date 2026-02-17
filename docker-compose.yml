@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: trajefino-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: postgresdb
+      POSTGRES_USER: pgadmin
+      POSTGRES_PASSWORD: 12345
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - trajefino-net
+
+  trajefino-api:
+    image: ghcr.io/jefersonguerrajr/trajefino-api:latest
+    container_name: trajefino-api
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: postgresdb
+      DB_USER: pgadmin
+      DB_PASSWORD: 12345
+    ports:
+      - "1515:1515"
+    networks:
+      - trajefino-net
+
+volumes:
+  postgres_data:
+
+networks:
+  trajefino-net:
+    driver: bridge
