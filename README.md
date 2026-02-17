@@ -4,16 +4,6 @@ Serviço desenvolvido utilizando o framework **Spring Boot** para o sistema traj
 
 > Porta padrão da aplicação: **1515** (configurada em `src/main/resources/application.yml`).
 
-## Sumário
-
-- [Requisitos](#requisitos)
-- [Configuração](#configuração)
-- [Execução](#execução)
-- [Documentação Swagger](#documentação-swagger)
-- [Autenticação (JWT)](#autenticação-jwt)
-- [Principais rotas](#principais-rotas)
-- [Tecnologias](#tecnologias)
-
 ## Requisitos
 
 - **Java 21**

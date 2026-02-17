@@ -1,0 +1,28 @@
+# Git
+.git
+.gitignore
+.github
+
+# Gradle
+.gradle
+build
+!build/libs/*.jar
+
+# IDE
+.idea
+.vscode
+*.iml
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
